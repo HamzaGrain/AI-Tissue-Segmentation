@@ -18,20 +18,12 @@ dans le suite du projet.
 
 ## Pipeline
 
-Image WSI
-   ↓
-Découpage en patches
-   ↓
-Segmentation par IA
-   ↓
-Post-processing
-   ↓
-Extraction des polygones
-   ↓
-Traitement géométrique
-   ↓
-Export GeoJSON
-   ↓
-QuPath
-   ↓
+Image WSI ->
+Découpage en patches ->
+Segmentation par IA ->
+Post-processing ->
+Extraction des polygones ->
+Traitement géométrique ->
+Export GeoJSON ->
+QuPath ->
 Correction / validation
