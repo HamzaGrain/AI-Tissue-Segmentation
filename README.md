@@ -369,9 +369,6 @@ P16-KLHL35-AI-Annotation-Pipeline/
 │       ├── compare_distribution.py
 │       └── compare_geojson_manual_IA.py
 │
-├── configs/
-│   └── config_example.py
-│
 ├── models/
 │   └── README.md
 │
