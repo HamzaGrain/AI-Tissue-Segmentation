@@ -25,7 +25,7 @@ steps, from model inference to polygon generation and GeoJSON export.
 
 The complete workflow is:
 
-```text
+```
 Whole Slide Image (.ndpi)
           │
           ▼
@@ -51,6 +51,7 @@ Whole Slide Image (.ndpi)
           │
           ▼
         QuPath
+```
 
 
 ## Module structure
@@ -69,8 +70,8 @@ predict_geojson_to_QuPath/
 ├── quality_assurance.py
 └── predict_geojson.py
 
-
-##config.py
+`
+## config.py
 
 Centralized configuration of the pipeline.
 
@@ -87,13 +88,13 @@ export options
 quality assurance thresholds
 
 
-##model.py
+## model.py
 
 Handles the loading of the trained segmentation model and the
 Whole Slide Image.
 
 
-##inference.py
+## inference.py
 
 Performs inference on the Whole Slide Image.
 
@@ -108,7 +109,7 @@ the confidence map
 the class probability maps
 
 
-##postprocessing.py
+## postprocessing.py
 
 Cleans the raw segmentation prediction.
 
@@ -123,7 +124,7 @@ The objective is to obtain a cleaner segmentation mask before
 converting it into polygon geometries.
 
 
-##polygon_extraction.py
+## polygon_extraction.py
 
 Converts the segmentation mask into polygon geometries.
 
@@ -135,7 +136,7 @@ creates Shapely polygon geometries
 validates invalid geometries when necessary
 
 
-##polygon_processing.py
+## polygon_processing.py
 
 Processes the extracted polygon geometries.
 
@@ -148,7 +149,7 @@ merging of nearby polygons
 computation of polygon statistics
 
 
-##geojson_export.py
+## geojson_export.py
 
 Converts the processed polygon geometries into a GeoJSON file
 compatible with QuPath.
@@ -160,7 +161,7 @@ Coordinates are converted back to the original WSI coordinate
 system before export.
 
 
-##overlay.py
+## overlay.py
 
 Generates visualization outputs for inspecting the segmentation
 results.
@@ -177,13 +178,13 @@ These visualizations can be used to visually inspect the prediction
 before importing the annotations into QuPath.
 
 
-##statistics.py
+## statistics.py
 
 Computes statistics associated with the generated annotations,
 including geometric and class-related information.
 
 
-##quality_assurance.py
+## quality_assurance.py
 
 Performs additional quality checks on the generated annotations.
 
@@ -191,7 +192,7 @@ It identifies annotations that may require visual verification
 after automated prediction.
 
 
-##predict_geojson.py
+## predict_geojson.py
 
 Main entry point of the pipeline.
 
@@ -218,7 +219,7 @@ Statistics
 Quality assurance
 
 
-##Configuration
+## Configuration
 
 Before running the pipeline, modify the paths in config.py.
 
@@ -234,7 +235,7 @@ The remaining parameters control the inference resolution,
 patch extraction, model configuration, post-processing and
 export settings.
 
-##Input
+## Input
 
 The pipeline requires:
 
@@ -254,13 +255,13 @@ A trained PyTorch model is required.
 Example:
 
 
-##model.pth
+## model.pth
 
 The model must correspond to the segmentation architecture and
 number of classes defined in config.py.
 
 
-##Output
+## Output
 
 The pipeline generates several outputs in the configured
 output directory.
@@ -296,7 +297,7 @@ python predict_geojson.py
 
 The pipeline will automatically execute the complete workflow.
 
-##QuPath
+## QuPath
 
 The generated GeoJSON can be imported into QuPath to visualize
 the automatically generated tissue compartment annotations.
@@ -313,7 +314,7 @@ The generated annotations are intended to assist the manual
 annotation process and facilitate the identification and
 quantification of tissue compartments.
 
-##Important
+## Important
 
 The repository does not include:
 
@@ -329,7 +330,7 @@ The paths shown in the configuration files are therefore examples
 and must be replaced by the user with their own local paths.
 
 
-##Dependencies
+## Dependencies
 
 Main Python libraries used by this module include:
 
@@ -344,7 +345,7 @@ tqdm
 See the main project requirements.txt for the complete list of
 dependencies.
 
-##Project context
+## Project context
 
 This module was developed as part of a research project focused on
 the automated annotation of histological tissue compartments using
@@ -353,4 +354,4 @@ deep learning.
 The objective is to assist the annotation workflow in QuPath and
 facilitate subsequent quantitative analysis of tissue biomarkers.
 
-##Author: Hamza Graïn
+### Author: Hamza Graïn
