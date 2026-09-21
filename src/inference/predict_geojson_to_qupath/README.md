@@ -69,7 +69,7 @@ predict_geojson_to_QuPath/
 ├── statistics.py
 ├── quality_assurance.py
 └── predict_geojson.py
-
+```
 `
 ## config.py
 
