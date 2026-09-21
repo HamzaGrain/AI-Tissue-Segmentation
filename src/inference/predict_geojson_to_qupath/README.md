@@ -25,7 +25,7 @@ steps, from model inference to polygon generation and GeoJSON export.
 
 The complete workflow is:
 
-```
+``` text
 Whole Slide Image (.ndpi)
           │
           ▼
@@ -56,6 +56,7 @@ Whole Slide Image (.ndpi)
 
 ## Module structure
 
+````
 predict_geojson_to_QuPath/
 │
 ├── config.py
@@ -252,8 +253,6 @@ The WSI is read using OpenSlide.
 2. Trained segmentation model
 
 A trained PyTorch model is required.
-
-Example:
 
 
 ## model.pth
