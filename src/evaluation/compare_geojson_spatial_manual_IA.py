@@ -3,7 +3,7 @@ P16-KLHL35 AI Annotation Pipeline
 ---------------------------------
 
 Module:
-    compare_geojson_manual_IA.py
+    compare_geojson_spatial_manual_IA.py
 
 Description:
     Comparison of manual and AI-generated GeoJSON annotations.
