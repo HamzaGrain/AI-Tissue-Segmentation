@@ -1,3 +1,21 @@
+"""
+P16-KLHL35 AI Annotation Pipeline
+---------------------------------
+
+Module:
+    compare_geojson_manual_IA.py
+
+Description:
+    Comparison of manual and AI-generated GeoJSON annotations.
+
+    The module evaluates the spatial agreement between manual
+    reference annotations and predicted tissue compartment
+    annotations using geometric segmentation metrics.
+
+Author:
+    Hamza Graïn
+"""
+
 import csv
 import json
 import os
