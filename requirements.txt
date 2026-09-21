@@ -1,1 +1,33 @@
+# ==========================================================
+# P16-KLHL35 AI Annotation Pipeline
+# ==========================================================
 
+# Deep Learning
+torch==2.12.1+cu126
+torchvision==0.27.1+cu126
+timm==1.0.27
+
+# Image Processing
+numpy
+opencv-python
+Pillow
+
+# Whole Slide Image Processing
+openslide-python
+
+# Geometric and Annotation Processing
+shapely
+geojson
+
+# Data Processing
+pandas
+
+# Machine Learning Utilities
+scikit-learn
+
+# Visualization
+matplotlib
+
+# Utilities
+tqdm==4.68.2
+typer==0.25.1
