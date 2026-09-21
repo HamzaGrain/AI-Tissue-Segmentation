@@ -70,7 +70,8 @@ predict_geojson_to_QuPath/
 ├── quality_assurance.py
 └── predict_geojson.py
 ```
-`
+
+````
 ## config.py
 
 Centralized configuration of the pipeline.
