@@ -231,4 +231,4 @@ performance and annotation agreement, supporting the evaluation of
 automated tissue compartment annotation for subsequent
 quantitative analysis.
 
-### Author : Hamza GRAIN
+### Author : Hamza Graïn
