@@ -53,7 +53,7 @@ Whole Slide Image (.ndpi)
         QuPath
 
 
-##Module structure
+## Module structure
 
 predict_geojson_to_QuPath/
 │
