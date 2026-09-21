@@ -29,8 +29,8 @@ from shapely.validation import make_valid
 # CONFIGURATION
 
 
-MANUAL_GEOJSON = r"path\to\the\annotations_biopsie_number_manual.geojson"
-AI_GEOJSON = r"path\to\the\annotations_biopsie_number_IA.geojson"
+MANUAL_GEOJSON = r"path\to\your\annotations_biopsie_number_manual.geojson"
+AI_GEOJSON = r"path\to\your\annotations_biopsie_number_IA.geojson"
 OUTPUT_CSV = r"comparaison_biopsie_number_manual_IA.csv"
 
 # Classes à comparer. "Vide" est volontairement exclue.
