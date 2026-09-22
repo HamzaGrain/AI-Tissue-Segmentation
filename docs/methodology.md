@@ -187,11 +187,12 @@ To complement the patch-level validation, several model versions were evaluated 
 
 The training configurations were progressively expanded:
 
-Model	Training biopsies	Excluded biopsies
-V1	001, 002	003, 004, 005, 006, 007, 008
-V2	001, 002, 003, 006	004, 005, 007, 008
-V3	001, 002, 003, 006, 007, 008	004, 005
-V4	001, 002, 003, 004, 006, 007, 008	005
+| Model | Training biopsies | Excluded biopsies |
+|---|---|---|
+| V1 | 001, 002 | 003, 004, 005, 006, 007, 008 |
+| V2 | 001, 002, 003, 006 | 004, 005, 007, 008 |
+| V3 | 001, 002, 003, 006, 007, 008 | 004, 005 |
+| V4 | 001, 002, 003, 004, 006, 007, 008 | 005 |
 
 The independent biopsy evaluation was designed to provide a more representative assessment of model behaviour on previously unseen biopsies.
 
@@ -199,13 +200,13 @@ The independent biopsy evaluation was designed to provide a more representative 
 
 Model performance was evaluated using class-level segmentation metrics.
 
-Dice coefficient
+### Dice coefficient
 
 The Dice coefficient measures the overlap between the predicted segmentation and the reference segmentation.
 
 It was calculated independently for each tissue class.
 
-Intersection over Union
+### Intersection over Union
 
 IoU was also calculated for each class.
 
@@ -213,7 +214,7 @@ Both metrics were used because they provide complementary descriptions of segmen
 
 The mean Dice and mean IoU across the four classes were also reported as global performance indicators.
 
-10. Whole-Slide Inference
+## 10. Whole-Slide Inference
 
 After training, the model can be applied to a new whole-slide image.
 
@@ -224,7 +225,7 @@ Each patch is independently passed through the segmentation model.
 The resulting predictions are then reconstructed at slide level.
 
 The inference workflow is:
-
+````
 Whole Slide Image
         ↓
 Patch extraction
@@ -234,25 +235,27 @@ Model prediction
 Overlapping prediction aggregation
         ↓
 Slide-level segmentation mask
-
+````
 The inference procedure is implemented in:
-
+````
 src/inference/predict_wsi.py
-11. Post-processing
+````
+
+## 11. Post-processing
 
 The reconstructed segmentation is processed before polygon extraction.
 
 The post-processing stage includes:
-
+````
 confidence filtering;
 morphological processing;
 removal of very small regions.
-
+````
 The purpose is to reduce isolated prediction artefacts and obtain more coherent tissue regions.
 
 The processed segmentation mask is then used for polygon extraction.
 
-12. Polygon Extraction and QuPath Integration
+## 12. Polygon Extraction and QuPath Integration
 
 The final segmentation mask is converted into polygon geometries.
 
@@ -261,7 +264,7 @@ Contours are extracted independently for each semantic class.
 The resulting polygons are processed and exported as GeoJSON annotations.
 
 The general workflow is:
-
+```
 Segmentation mask
         ↓
 Contour extraction
@@ -273,48 +276,48 @@ Polygon processing
 GeoJSON export
         ↓
 QuPath import
-
+````
 The complete implementation is located in:
-
+````
 src/inference/predict_geojson_to_QuPath/
-
+````
 The generated GeoJSON can be imported into QuPath to visualize the predicted tissue compartments and perform subsequent manual corrections.
 
 The AI output is therefore considered a first annotation proposal rather than a final diagnostic or annotation decision.
 
-13. Quantitative Concordance
+## 13. Quantitative Concordance
 
 Because the intended application includes quantitative tissue analysis, model evaluation was not limited to pixel-level segmentation metrics.
 
 The global proportion of each tissue compartment was calculated for both manual and AI annotations.
 
 The evaluated classes were:
-
+````
 CK14;
 Stroma;
 Autres.
-
+````
 The difference between AI and manual proportions was calculated for each class.
 
 The mean absolute error across the evaluated classes was then used to summarize the global quantitative difference.
 
 The quantitative concordance was defined as:
-
+````
 Quantitative concordance = 100 - mean absolute error
-
+````
 This evaluation measures whether the AI preserves the overall distribution of tissue compartments, independently of small local spatial differences.
 
-14. Spatial Concordance
+## 14. Spatial Concordance
 
 A separate spatial evaluation was performed by comparing the manual and AI-generated polygon geometries.
 
 For each tissue class, the following metrics were calculated:
-
+````
 Precision;
 Recall;
 Dice;
 IoU.
-
+````
 The evaluation was based on the continuous area of the predicted and reference polygons.
 
 This analysis provides information about the spatial localization of the predicted tissue compartments.
@@ -323,7 +326,7 @@ Spatial concordance and quantitative concordance were treated as complementary m
 
 A prediction may reproduce the global proportion of a compartment accurately while still differing locally in its exact spatial boundaries.
 
-15. Manual Intra-Annotator Reproducibility
+## 15. Manual Intra-Annotator Reproducibility
 
 To estimate the variability associated with manual annotation, one biopsy was manually annotated a second time.
 
@@ -335,30 +338,30 @@ This provides an estimate of intra-annotator reproducibility and provides contex
 
 The analysis was limited to one re-annotated biopsy and therefore does not represent the complete variability that could exist between multiple annotators or across the entire dataset.
 
-16. Time-Saving Evaluation
+## 16. Time-Saving Evaluation
 
 The practical benefit of the automated pipeline was evaluated by comparing manual annotation time with AI-assisted annotation time.
 
 The AI-assisted workflow included:
-
+````
 AI inference;
 QuPath import;
 manual correction of the generated annotations.
-
+````
 The total AI-assisted time was therefore calculated as:
-
+````
 AI-assisted time =
 Inference time
 + QuPath import time
 + Manual correction time
-
+````
 The time gain was calculated by comparing this total with the time required for the corresponding manual annotation.
 
 This evaluation was performed on biopsies with different levels of annotation complexity.
 
 The purpose was to measure the practical reduction in annotation workload rather than to assign a monetary value to the time saved.
 
-17. Evaluation Philosophy
+## 17. Evaluation Philosophy
 
 The evaluation strategy was designed to avoid relying on a single performance indicator.
 
@@ -375,15 +378,15 @@ Time-saving evaluation	How much manual annotation time can be reduced?
 
 This multi-level evaluation is particularly important given the limited number of manually annotated biopsies.
 
-18. Methodological Limitations
+## 18. Methodological Limitations
 
 The main limitations of the methodology are:
 
-Limited annotated dataset
+### Limited annotated dataset
 
 Only a subset of the complete biopsy dataset was manually annotated because manual annotation required substantial time.
 
-Patch-level validation bias
+### Patch-level validation bias
 
 The 80/20 validation split was performed at the patch level rather than strictly at the biopsy level.
 
@@ -393,37 +396,37 @@ The resulting validation metrics may therefore provide an optimistic estimate of
 
 The approach was retained as a practical compromise to exploit the limited manually annotated dataset.
 
-Limited independent evaluation
+### Limited independent evaluation
 
 The number of independent biopsies available for evaluation remained limited.
 
 The independent biopsy results should therefore be interpreted as an evaluation of behaviour on the available unseen biopsies rather than as a definitive estimate of performance on a larger population.
 
-Manual annotation variability
+### Manual annotation variability
 
 Manual annotation itself contains variability, particularly for small or ambiguous regions.
 
 The intra-annotator evaluation was performed on one biopsy and therefore provides only a limited estimate of this variability.
 
-Post-processing effects
+### Post-processing effects
 
 The final polygon geometry may differ slightly from the raw pixel-level segmentation because of post-processing and polygon conversion.
 
 Consequently, visual inspection of the segmentation mask and evaluation of the final QuPath polygons address related but not identical representations of the model output.
 
-19. Reproducibility and Data Protection
+## 19. Reproducibility and Data Protection
 
 The methodology and evaluation scripts are included in this repository to document the computational workflow.
 
 The original:
-
+````
 whole-slide images;
 histological images;
 biological data;
 manual annotations;
 GeoJSON annotations;
 segmentation masks;
-
+````
 are not distributed in the repository.
 
 The trained model weights are also not included.
