@@ -367,14 +367,15 @@ The evaluation strategy was designed to avoid relying on a single performance in
 
 The different analyses answer different questions:
 
-Evaluation	Question addressed
-Patch-level validation	How does the model behave on the internal validation patches?
-Independent biopsy evaluation	How does the model behave on unseen biopsies?
-Dice / IoU	How well do predicted and reference regions overlap?
-Quantitative concordance	Are global tissue proportions preserved?
-Spatial concordance	Are tissue compartments located in similar regions?
-Intra-annotator reproducibility	How variable is manual annotation itself?
-Time-saving evaluation	How much manual annotation time can be reduced?
+| Evaluation | Main question |
+|---|---|
+| Patch verification | Is the prepared dataset internally consistent? |
+| Patch-level validation | How does the model perform on the validation patches? |
+| Independent biopsy evaluation | How does the model generalize to unseen biopsies? |
+| Quantitative concordance | Does the AI reproduce global tissue proportions? |
+| Spatial concordance | Does the AI reproduce tissue localization? |
+| Intra-annotator reproducibility | How variable is manual annotation itself? |
+| Time-saving evaluation | How much annotation time can the workflow reduce? |
 
 This multi-level evaluation is particularly important given the limited number of manually annotated biopsies.
 
