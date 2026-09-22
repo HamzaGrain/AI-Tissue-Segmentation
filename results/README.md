@@ -70,13 +70,14 @@ To address this limitation, additional evaluation was performed at the biopsy le
 
 Several model versions were trained using progressively larger sets of annotated biopsies.
 
-````
-|Model|	|Training biopsies|	|Excluded biopsies|
-|V1|	|001, 002|	003, 004, 005, 006, 007, 008|
-|V2|	|001, 002, 003, 006|	004, 005, 007, 008|
-|V3|	|001, 002, 003, 006, 007, 008|	004, 005|
-|V4|	|001, 002, 003, 004, 006, 007, 008|	005|
-````
+
+| Model | Training biopsies | Excluded biopsies |
+|---|---|---|
+| V1 | 001, 002 | 003, 004, 005, 006, 007, 008 |
+| V2 | 001, 002, 003, 006 | 004, 005, 007, 008 |
+| V3 | 001, 002, 003, 006, 007, 008 | 004, 005 |
+| V4 | 001, 002, 003, 004, 006, 007, 008 | 005 |
+
 The model performance was evaluated using:
 ````
 Dice coefficient,
@@ -215,11 +216,12 @@ The relative time gain was then calculated by comparing the total AI-assisted ti
 
 Representative biopsies included different levels of annotation complexity.
 
-Biopsy	Type	Manual annotation	Total AI-assisted time	Time gain
-003	Test	18 h	21 min 02 s	98.1%
-004	Test	14 h	20 min 14 s	97.6%
-005	Independent	11 h	29 min 53 s	95.5%
-007	Complex	45 h	84 min 57 s	96.85%
+| Biopsy | Type	| Manual annotation | Total AI-assisted time | Time gain |
+|---|---|---|---|---|
+| 003 | Test | 18 h | 21 min 02 s | 98.1% |
+| 004 | Test | 14 h | 20 min 14 s | 97.6% |
+| 005 | Independent | 11 h | 29 min 53 s | 95.5% |
+| 007 | Complex | 45 h | 84 min 57 s | 96.85% |
 
 The evaluation highlights the potential reduction in annotation time provided by the AI-assisted workflow.
 
