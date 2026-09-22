@@ -231,14 +231,15 @@ The correction step was intentionally included because the system is designed as
 
 The different evaluations address complementary questions:
 
-Evaluation	Main question
-Patch verification	Is the prepared dataset internally consistent?
-Patch-level validation	How does the model perform on the validation patches?
-Independent biopsy evaluation	How does the model generalize to unseen biopsies?
-Quantitative concordance	Does the AI reproduce global tissue proportions?
-Spatial concordance	Does the AI reproduce tissue localization?
-Intra-annotator reproducibility	How variable is manual annotation itself?
-Time-saving evaluation	How much annotation time can the workflow reduce?
+| Evaluation | Main question |
+|---|---|
+| Patch verification | Is the prepared dataset internally consistent? |
+| Patch-level validation | How does the model perform on the validation patches? |
+| Independent biopsy evaluation | How does the model generalize to unseen biopsies? |
+| Quantitative concordance | Does the AI reproduce global tissue proportions? |
+| Spatial concordance | Does the AI reproduce tissue localization? |
+| Intra-annotator reproducibility | How variable is manual annotation itself? |
+| Time-saving evaluation | How much annotation time can the workflow reduce? |
 
 No single metric was considered sufficient to characterize the complete performance of the pipeline.
 
