@@ -70,13 +70,13 @@ To address this limitation, additional evaluation was performed at the biopsy le
 
 Several model versions were trained using progressively larger sets of annotated biopsies.
 
-
-Model	Training biopsies	Excluded biopsies
-V1	001, 002	003, 004, 005, 006, 007, 008
-V2	001, 002, 003, 006	004, 005, 007, 008
-V3	001, 002, 003, 006, 007, 008	004, 005
-V4	001, 002, 003, 004, 006, 007, 008	005
-
+````
+|Model|	|Training biopsies|	|Excluded biopsies|
+|V1|	|001, 002|	003, 004, 005, 006, 007, 008|
+|V2|	|001, 002, 003, 006|	004, 005, 007, 008|
+|V3|	|001, 002, 003, 006, 007, 008|	004, 005|
+|V4|	|001, 002, 003, 004, 006, 007, 008|	005|
+````
 The model performance was evaluated using:
 ````
 Dice coefficient,
